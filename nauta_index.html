@@ -1,1175 +1,1207 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>The Afrobeatles</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Afrobeatles" />
-    <link rel="icon" href="/assets/img/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/global.css" />
-    <script src="js/leaderboard.js" type="module"></script>
-    <style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy:wght@100;400&display=swap');
-
-/* Base */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  --body-font-family: "Noto Sans", Tahoma, Geneva, Verdana, sans-serif;
-  --body-background-color: #000000;
-  font-size: 16px;
-  color: var(--body-color);
-  background-color: var(--body-background-color);
-  -webkit-font-smoothing: antialiased;
-  /*margin-left: 40px;
-  margin-right: 40px;
-  */
-}
-
-.main-global {
-  font-family: var(--body-font-family);
-  background-color: var(--body-background-color);
-  /* body border */
-
-  box-sizing: border-box;
-  height: 100%;
-  min-height: 1024px;
-}
-/* Variables */
-:root {
-  --gray-offset: rgba(0, 0, 0, 0.03);
-  --gray-border: rgba(0, 0, 0, 0.15);
-  --gray-light: rgba(0, 0, 0, 0.4);
-  --gray-mid: rgba(0, 0, 0, 0.7);
-  --gray-dark: rgba(0, 0, 0, 0.9);
-  --black-dark: rgba(0, 0, 0, 0);
-  --body-color: var(--gray-mid);
-  --body-background: var(--black-dark);
-  --headline-color: var(--gray-dark);
-  --accent-color: #ffffff;
-  --body-font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  --radius: 7px;
-  --logo-image: url("https://storage.googleapis.com/stripe-sample-images/KAVHOLM.svg");
-  --form-width: 343px;
-}
-
-
-
-  .header .title {
-    padding-top:150px;
-    /* The Afrobeatles */
-    font-family: 'Lakki Reddy';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 64px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #FFFFFF;
-   }
-
-  .header .subheader {
-    /* Merch Challenge */
-    font-family: 'Noto Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 27px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #FD9809;
-  }
-
-  .footer {
-    flex-shrink: 0;
-    font-family: "Noto Sans", Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    padding:10px;
-    background: #171717;
-    color:white;
-    --accent-color: #ffffff;
-  }
-  
-  footer a {
-    color: #FD9809;
-    transition: all 0.2s ease;
-  }
-  
-  footer a:hover {
-    filter: brightness(0.8);
-  }
-  
-  footer a:active {
-    filter: brightness(0.5);
-  }
-  
-  .button-list {
-    width: 100%;
-    display: grid;
-    justify-content: space-evenly;
-    justify-items: center;
-    align-content: space-evenly;
-    align-items: center;
-    padding-top: 100px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .button-list button {
-      margin-top: 24px;
-      background: #FD9809;
-      border-radius: 7px;
-      font-family: 'Noto Sans';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 27px;
-      text-align: center;
-      text-transform: uppercase;
-
-      color: #000000;
-  }
-
-  .button-center {
-    width: 100%;
-    display: grid;
-    justify-content: space-evenly;
-    justify-items: center;
-    align-content: space-evenly;
-    align-items: center;
-    padding-top: 50px;
-    grid-template-columns: repeat(1, 1fr);
-  }
-  
-  .button-center button {
-    margin-top: 24px;
-    background: #FD9809;
-    border-radius: 7px;
-    font-family: var(--body-font-family);
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 27px;
-    text-align: center;
-    text-transform: uppercase;
-
-    color: #000000;
-  }
-
-.banner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    height: 60px;
-    overflow-x:clip;
-}
-
-.banner-stripe {
-    position: absolute;
-    top: 0;
-    left: -5%;
-    width: 110%;
-    display: block;
-}
-
-.banner-red {
-    border-top: 5px solid #BF0004;
-    z-index: 3;
-    box-sizing: border-box;
-}
-
-.banner-yellow {
-    background: #FD9809;
-    height: 75px;
-    top: -60%;
-    transform: rotate(2deg);
-    z-index: 2;
-}
-
-.banner-green {
-    background: #278E45;
-    height: 75px;
-    top: -60%;
-    transform: rotate(-2deg);
-    z-index: 1;
-}
-
-  .home-body {
-    font-family: var(--body-font-family);
-    /* Want to win free tickets to see the Afrobeatles at their next concert? Sign up below to become a seller in the Merch Challenge! */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    padding-top: 100px;
-    padding-left:15%;
-    padding-right:15%;
-    text-align: center;
-    color: #FFFFFF;
-  }
-
-  /** Seller form */
-  .seller-form {
-    text-align: center;
-  }
-  .seller-inputs {
-    display: grid;
-    justify-content: space-evenly;
-    justify-items: center;
-    align-content: space-evenly;
-    align-items: center;
-    padding-top: 30px;
-  }
-  .seller-input-box {
-    /* Input */
-    width: 272px;
-    height: 53px;
-    background: #FFFFFF;
-    border-radius: 7px;
-    font-family: var(--body-font-family);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    margin-bottom: 30px;
-  }
-  .username-help-text {
-    padding-top: 15px;
-    /* This is what will be displayed on the leaderboard */
-      width: 300px;
-      font-family: var(--body-font-family);
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 16px;
-      /* identical to box height */
-      color: #FFFFFF;
-      text-align: left;
-  }
-
-    .paymentlink-error {
-      color: #FD9809;
-      width: 400px;
-      display:grid;
-      text-align: center;
-      font-family: var(--body-font-family);
-      font-style: normal;
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 19px;
-      padding-top: 30px;
-    }
-  .signup-complete {
-    font-family: var(--body-font-family);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    justify-content: space-evenly;
-    justify-items: center;
-    align-content: space-evenly;
-    align-items: center;
-    color: #FFFFFF;
-    padding-top: 100px;
-  }
-
-  /* Inputs */
-  .pmlink-input,
-  input[type="text"] {
-    border: 1px solid var(--gray-border);
-    border-radius: 7px;
-    padding: 5px 12px;
-    height: 53px;
-    width: 100%;
-    transition: box-shadow 0.2s ease;
-    background: white;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  .payment-link-section {
-    justify-items: center;
-    align-content: space-evenly;
-    align-items: center;
-    padding-top: 18px;
-  }
-  .payment-link {
-    align-items: center;
-    justify-content: space-evenly;
-    display: inline-flex;
-    width: 400px;
-    height: 53px;
-    background: #FFFFFF;
-    border-radius: 7px;
-    font-family: var(--body-font-family);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    color: #121212;
-  }
-
-  .copy-button {
-    /* Copy button */
-    align-items: center;
-    display: inline-flex;
-    width: 25px;
-    height: 25px;
-    margin-left: 25px;
-  }
-
-  .hide-instructionText {
-    display:none;
-  }
-  /* Layout */
-  
-
-  /* Buttons and links */
-  button {
-    background: var(--accent-color);
-    border-radius: var(--radius);
-    color: white;
-    border: 0;
-    padding: 12px 16px;
-    margin-top: 16px;
-    font-size: 1.5vw;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: block;
-  }
-  button:hover {
-    filter: contrast(115%);
-  }
-  button:active {
-    transform: translateY(0px) scale(0.98);
-    filter: brightness(0.9);
-  }
-  button:disabled {
-    opacity: 0.5;
-    cursor: none;
-  }
-
-  a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  a:hover {
-    filter: brightness(0.8);
-  }
-
-  a:active {
-    filter: brightness(0.5);
-  }
-
-
-  .sr-summary {
-    width: 316px;
-    margin-bottom: 2vw;
-    font-size: 1.15vw;
-  }
-
-  .summary-content {
-    font-family: var(--body-font-family);
-    padding: 80px;
-  }
-
-  .summary-table {
-    width: 100%;
-    display: grid;
-    /* margin-top: 3vw; */
-    /*grid-template-columns: 100%;*/
-  }
-  .summary-row, .summary-header-row {
-    width: 100%;
-    display: grid;
-    /* margin-top: 3vw; */
-    grid-template-columns: 50% 50%;
-    color:#ffffff;
-    margin-top: 1vw;
-    height: 50px;
-    text-align: center;
-    padding-left: 20px;
-  }
-  .summary-row:nth-child(even) {
-    background: #171717;
-    border-radius: 10px;
-  }
-
-.summary-header-name, .summary-header-sale {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-}
-
-.summary-name, .summary-sale {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-}
-
-/* spinner/processing state, errors, animations */
-
-.spinner {
-  margin: auto;
-  margin-top:40px;
-  width: 200px;
-  height: 200px;
-  border: 3px solid rgba(255,255,255,.3);
-  border-radius: 50%;
-  border-top-color: #FD9809;
-  animation: spin 1s ease-in-out infinite;
-  -webkit-animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
-}
-
-  /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-  /* Document
-   ========================================================================== */
-
-  /**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
-  html {
-    line-height: 1.15; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-  }
-
-  /* Sections
-   ========================================================================== */
-
-  /**
- * Remove the margin in all browsers.
- */
-
-  body {
-    margin: 0;
-    height: 100%;
-      width: 100%;
-      display: grid;
-      align-items: center;
-      justify-content: center;
-  }
-
-  /**
- * Render the `main` element consistently in IE.
- */
-
-  main {
-    display: block;
-  }
-
-  /**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-  h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-  }
-
-  /* Grouping content
-   ========================================================================== */
-
-  /**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-  hr {
-    box-sizing: content-box; /* 1 */
-    height: 0; /* 1 */
-    overflow: visible; /* 2 */
-  }
-
-  /**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-  pre {
-    font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
-  }
-
-  /* Text-level semantics
-   ========================================================================== */
-
-  /**
- * Remove the gray background on active links in IE 10.
- */
-
-  a {
-    background-color: transparent;
-  }
-
-  /**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-  abbr[title] {
-    border-bottom: none; /* 1 */
-    text-decoration: underline; /* 2 */
-    text-decoration: underline dotted; /* 2 */
-  }
-
-  /**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-  b,
-  strong {
-    font-weight: bolder;
-  }
-
-  /**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-  code,
-  kbd,
-  samp {
-    font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
-  }
-
-  /**
- * Add the correct font size in all browsers.
- */
-
-  small {
-    font-size: 80%;
-  }
-
-  /**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-
-  sub {
-    bottom: -0.25em;
-  }
-
-  sup {
-    top: -0.5em;
-  }
-
-  /* Embedded content
-   ========================================================================== */
-
-  /**
- * Remove the border on images inside links in IE 10.
- */
-
-  img {
-    border-style: none;
-  }
-
-  /* Forms
-   ========================================================================== */
-
-  /**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit; /* 1 */
-    font-size: 100%; /* 1 */
-    line-height: 1.15; /* 1 */
-    margin: 0; /* 2 */
-  }
-
-  /**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-  button,
-  input {
-    /* 1 */
-    overflow: visible;
-  }
-
-  /**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-  button,
-  select {
-    /* 1 */
-    text-transform: none;
-  }
-
-  /**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-
-  button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    -webkit-appearance: button;
-  }
-
-  /**
- * Remove the inner border and padding in Firefox.
- */
-
-  button::-moz-focus-inner,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-  }
-
-  /**
- * Restore the focus styles unset by the previous rule.
- */
-
-  button:-moz-focusring,
-  [type="button"]:-moz-focusring,
-  [type="reset"]:-moz-focusring,
-  [type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText;
-  }
-
-  /**
- * Correct the padding in Firefox.
- */
-
-  fieldset {
-    padding: 0.35em 0.75em 0.625em;
-  }
-
-  /**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
-  legend {
-    box-sizing: border-box; /* 1 */
-    color: inherit; /* 2 */
-    display: table; /* 1 */
-    max-width: 100%; /* 1 */
-    padding: 0; /* 3 */
-    white-space: normal; /* 1 */
-  }
-
-  /**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-
-  progress {
-    vertical-align: baseline;
-  }
-
-  /**
- * Remove the default vertical scrollbar in IE 10+.
- */
-
-  textarea {
-    overflow: auto;
-  }
-
-  /**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-
-  [type="checkbox"],
-  [type="radio"] {
-    box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
-  }
-
-  /**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-  [type="number"]::-webkit-inner-spin-button,
-  [type="number"]::-webkit-outer-spin-button {
-    height: auto;
-  }
-
-  /**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
-  [type="search"] {
-    -webkit-appearance: textfield; /* 1 */
-    outline-offset: -2px; /* 2 */
-  }
-
-  /**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-
-  [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
-  /**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-  ::-webkit-file-upload-button {
-    -webkit-appearance: button; /* 1 */
-    font: inherit; /* 2 */
-  }
-
-  /* Interactive
-   ========================================================================== */
-
-  /*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-
-  details {
-    display: block;
-  }
-
-  /*
- * Add the correct display in all browsers.
- */
-
-  summary {
-    display: list-item;
-  }
-
-  /* Misc
-   ========================================================================== */
-
-  /**
- * Add the correct display in IE 10+.
- */
-
-  template {
-    display: none;
-  }
-
-  /**
- * Add the correct display in IE 10.
- */
-
-  [hidden] {
-    display: none;
-  }
-  
-  .warning-title {
-      color: rgb(0, 25, 39);
-      font-size: 24px;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .warning {
-      color: rgb(113, 113, 113);
-      font-size: 18px;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-weight: normal;
-      text-align: center;
-      line-height: 35px;
-    }</style>
-  </head>
-
-  <body>
-    <main class="main-global">
-      <div class="header">
-        <div class="banner">
-          <span class="banner-stripe banner-red"></span>
-          <span class="banner-stripe banner-yellow"></span>
-          <span class="banner-stripe banner-green"></span>
-        </div>
-        <div class="title"><a href="/">The Afrobeatles</a></div>
-        <div class="subheader">Merch Challenge</div>
-      </div>
-      <div class="home-body">
-        <p>Want to win free tickets to see the Afrobeatles at their next concert? Sign up below to become a seller in the Merch Challenge!</p>
-      </div>
-      <div class="button-list">
-        <a href="/signup">
-          <button id="signup">Become a Seller</button>
-        </a>
-        <a href="/leaderboard">
-          <button id="leaderboard">View Leaderboard</button>
-        </a>
-      </div>
-    </main>
-    <footer class="footer">
-      <p>Check out some of our favorite playlists on <a target="_blank" href="https://music.apple.com/us/playlist/afrobeats-hits/pl.dc349df19c6f410d874c197db63ecfed">Apple Music</a>,
-        <a target="_blank" href="https://audiomack.com/audiomack-africa/playlist/verified-afrobeats">Audiomack</a>,
-        <a target="_blank" href="https://www.boomplay.com/playlists/24262447">Boomplay</a>, &amp;
-        <a target="_blank" href="https://open.spotify.com/playlist/37i9dQZF1DWWHMKZF8dZSb">Spotify</a>!</p>
-     <div class="subheader">Top Fans</div>
-      </div>
-      <div class="spinner" id="spinner"></div>
-      <div id="top-seller-summary" class="top-seller-summary">
-        <div class="summary-content">
-          <div id="summary-table" class="summary-table">
-            <div class="summary-header-row">
-              <div id="header-row" class="summary-header-name">
-                Fan
-              </div>
-              <div class="summary-header-sale">Sales</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer class="footer">
-      <p>Check out some of our favorite playlists on <a target="_blank" href="https://music.apple.com/us/playlist/afrobeats-hits/pl.dc349df19c6f410d874c197db63ecfed">Apple Music</a>,
-        <a target="_blank" href="https://audiomack.com/audiomack-africa/playlist/verified-afrobeats">Audiomack</a>,
-        <a target="_blank" href="https://www.boomplay.com/playlists/24262447">Boomplay</a>, &amp;
-        <a target="_blank" href="https://open.spotify.com/playlist/37i9dQZF1DWWHMKZF8dZSb">Spotify</a>!</p>   
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- jQuery links, Typed.js and other needed scripts -->
+    <link rel="stylesheet" href="path/to/owl.carousel.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="path/to/owl.carousel.min.js">
+    </script>
+    
+    <style>
+    /*  import google fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
         
-   <div class="seller-form">
-        <div class="seller-desc" id="form-div">
-          <div class="seller-grid">
-            <div class="home-body">
-              <p>Once the form is submitted, you will receive your own personal
-              link to share. The top seller of the week will receive free
-              tickets to the next Afrobeatles concert!
-              </p>
+        
+        *{
+            margin: none;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        
+	/* buttons section */
+
+.btn a{
+  	position: relative;
+  	color: #f5f5f5;
+  	margin-top: 10px;
+  	margin-left: 40px;
+  	height: 50px;
+  	width: 220px;
+  	display: block;
+  	text-align: center;
+  	border-radius: 50px;
+  	text-decoration: none;
+  	background-image: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+	}
+	.btn a:hover{
+  	animation: rotate 0.4s linear infinite;
+	}
+	@keyframes rotate {
+  	100%{
+    filter: hue-rotate(-360deg)
+  	}
+	}
+.btn a span{
+  height: 88%;
+  width: 97%;
+  background: #111;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50px;
+  line-height: 42px;
+  font-size: 17px;
+  transform: translate(-50%, -50%);
+}
+
+		/* custom scroll bar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+  		/* all similar content styling codes */
+        section{
+            padding: 100px 0;
+        }
+        .max-width{
+            max-width: 1300px;
+            padding: 0 80px;
+            margin: auto;
+        }
+        .about, .services, .skills, .teams, .contact, footer{
+            font-family: 'Poppins', sans-serif;
+        }
+        .about .about-content,
+        .services .serv-content,
+        .skills .skills-content,
+        .contact .contact-content{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        section .title{
+            position: relative;
+            text-align: center;
+            font-size: 40px;
+            font-weight: 500;
+            margin-bottom: 60px;
+            padding-bottom: 20px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        section .title::before{
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 180px;
+            height: 3px;
+            background: #111;
+            transform: translateX(-50%);
+        }
+        section .title::after{
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            font-size: 20px;
+            color: crimson;
+            padding: 0 5px;
+            background: #fff;
+            transform: translateX(-50%);
+        }
+        
+        /* navbar styling */
+        .navbar{
+            position: fixed;
+            margin-right: 5px;
+            width: 50%;
+            z-index: 999;
+            padding: 20px 0;
+            font-family: 'Ubuntu', sans-serif;
+            transition: all 0.3s ease;
+            background-color: rgba(410, 10, 10, .0); /* Cambia el color y la transparencia */
+            
+        }
+        .navbar.sticky {
+           padding: 15px 0;
+            background: transparent; /* Befor: crimson */
+}
+        .navbar .max-width{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar .logo a{
+            color: green;
+            font-size: 35px;
+            font-weight: 600;
+            
+        }
+        .navbar .logo a span{
+            color: transparent;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        .navbar.sticky .logo a span{
+            color: #fff;
+        }
+        .navbar .menu li{
+            list-style: none;
+            display: inline-block;
+            padding-bottom: 50px;
+
+        }
+        .navbar .menu li a{
+            display: block;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            margin-left: 25px;
+            transition: color 0.3s ease;
+        }
+        .navbar .menu li a:hover{
+            color: crimson;
+        }
+        .navbar.sticky .menu li a:hover{
+            color: #fff;
+        }
+        
+        /* menu btn styling */
+        .menu-btn{
+            color: #fff;
+            font-size: 23px;
+            cursor: pointer;
+            display: none;
+        }
+        .scroll-up-btn{
+            position: fixed;
+            height: 45px;
+            width: 42px;
+            background: crimson;
+            right: 30px;
+            bottom: 10px;
+            text-align: center;
+            line-height: 45px;
+            color: #fff;
+            z-index: 9999;
+            font-size: 30px;
+            border-radius: 6px;
+            border-bottom-width: 2px;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .scroll-up-btn.show{
+            bottom: 30px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .scroll-up-btn:hover{
+            filter: brightness(90%);
+        }
+        
+        
+        /* home section styling */
+        .home{
+            display: flex;
+            background: url("images/banner.jpg") no-repeat center;
+            height: 100vh;
+            color: dark violet;
+            min-height: 500px;
+            background-size: cover;
+            background-attachment: fixed;
+           font-family: 'verdana';
+        }
+        .home .max-width{
+          width: 100%;
+          display: flex;
+        }
+        .home .max-width .row{
+          margin-right: 0;
+        }
+        .home .home-content .text-1{
+            font-size: 27px;                         
+           color: red;
+
+        }
+        .home .home-content .text-2{
+            font-size: 75px;
+            font-weight: 600;
+            margin-left: -3px;
+        }
+        .home .home-content .text-3{
+            font-size: 40px;
+            margin: 5px 0;
+        }
+        .home .home-content .text-3 span{
+            color: crimson;
+            font-weight: 500;
+        }
+        .home .home-content a{
+            display: inline-block;
+            background: crimson;
+            color: #fff;
+            font-size: 25px;
+            padding: 12px 36px;
+            margin-top: 20px;
+            font-weight: 400;
+            border-radius: 6px;
+            border: 2px solid crimson;
+            transition: all 0.3s ease;
+        }
+        .home .home-content a:hover{
+            color: crimson;
+            background: none;
+        }
+        
+        /* about section styling */
+        .about .title::after{
+            content: "who i am";
+        }
+        .about .about-content .left{
+            width: 45%;
+        }
+        .about .about-content .left img{
+            height: 400px;
+            width: 400px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .about .about-content .right{
+            width: 55%;
+        }
+        .about .about-content .right .text{
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .about .about-content .right .text span{
+            color: crimson;
+        }
+        .about .about-content .right p{
+            text-align: justify;
+        }
+        .about .about-content .right a{
+            display: inline-block;
+            background: crimson;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 10px 30px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border: 2px solid crimson;
+            transition: all 0.3s ease;
+        }
+        .about .about-content .right a:hover{
+            color: crimson;
+            background: none;
+        }
+        
+        /* services section styling */
+        .services, .teams{
+            color:#fff;
+            background: #111;
+        }
+        .services .title::before,
+        .teams .title::before{
+            background: #fff;
+        }
+        .services .title::after,
+        .teams .title::after{
+            background: #111;
+            content: "what i do";
+        }
+        .services .serv-content .card{
+            width: calc(33% - 20px);
+            background: #222;
+            text-align: center;
+            border-radius: 6px;
+            padding: 50px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .services .serv-content .card:hover{
+            background: crimson;
+        }
+        .services .serv-content .card .box{
+            transition: all 0.3s ease;
+        }
+        .services .serv-content .card:hover .box{
+            transform: scale(1.05);
+        }
+        .services .serv-content .card i{
+            font-size: 50px;
+            color: crimson;
+            transition: color 0.3s ease;
+        }
+        .services .serv-content .card:hover i{
+            color: #fff;
+        }
+        .services .serv-content .card .text{
+            font-size: 25px;
+            font-weight: 500;
+            margin: 10px 0 7px 0;
+        }
+        
+        /* skills section styling */
+        
+        .skills .title::after{
+            content: "what i know";
+        }
+        .skills .skills-content .column{
+            width: calc(50% - 30px);
+        }
+        .skills .skills-content .left .text{
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .skills .skills-content .left p{
+            text-align: justify;
+        }
+        .skills .skills-content .left a{
+            display: inline-block;
+            background: crimson;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 16px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border: 2px solid crimson;
+            transition: all 0.3s ease;
+        }
+        .skills .skills-content .left a:hover{
+            color: crimson;
+            background: none;
+        }
+        .skills .skills-content .right .bars{
+            margin-bottom: 15px;
+        }
+        .skills .skills-content .right .info{
+            display: flex;
+            margin-bottom: 5px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .skills .skills-content .right span{
+            font-weight: 500;
+            font-size: 18px;
+        }
+        .skills .skills-content .right .line{
+            height: 5px;
+            width: 100%;
+            background: lightgrey;
+            position: relative;
+        }
+        .skills .skills-content .right .line::before{
+            content: "";
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: crimson;
+        }
+        .skills-content .right .html::before{
+            width: 90%;
+        }
+        .skills-content .right .css::before{
+            width: 60%;
+        }
+        .skills-content .right .js::before{
+            width: 80%;
+        }
+        .skills-content .right .php::before{
+            width: 50%;
+        }
+        .skills-content .right .mysql::before{
+            width: 70%;
+        }
+        
+        /* contact section styling */
+        .contact .title::after{
+            content: "get in touch";
+        }
+        .contact .contact-content .column{
+            width: calc(50% - 30px);
+        }
+        .contact .contact-content .text{
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .contact .contact-content .left p{
+            text-align: justify;
+        }
+        .contact .contact-content .left .icons{
+            margin: 10px 0;
+        }
+        .contact .contact-content .row{
+            display: flex;
+            height: 65px;
+            align-items: center;
+        }
+        .contact .contact-content .row .info{
+            margin-left: 30px;
+        }
+        .contact .contact-content .row i{
+            font-size: 25px;
+            color: crimson;
+        }
+        .contact .contact-content .info .head{
+            font-weight: 500;
+        }
+        .contact .contact-content .info .sub-title{
+            color: #333;
+        }
+        .contact .right form .fields{
+            display: flex;
+        }
+        .contact .right form .field,
+        .contact .right form .fields .field{
+            height: 45px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .contact .right form .textarea{
+            height: 80px;
+            width: 100%;
+        }
+        .contact .right form .name{
+            margin-right: 10px;
+        }
+        .contact .right form .field input,
+        .contact .right form .textarea textarea{
+            height: 100%;
+            width: 100%;
+            border: 1px solid lightgrey;
+            border-radius: 6px;
+            outline: none;
+            padding: 0 15px;
+            font-size: 17px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .contact .right form .field input:focus,
+        .contact .right form .textarea textarea:focus{
+            border-color: #b3b3b3;
+        }
+        .contact .right form .textarea textarea{
+          padding-top: 10px;
+          resize: none;
+        }
+        .contact .right form .button-area{
+          display: flex;
+          align-items: center;
+        }
+        .right form .button-area button{
+          color: #fff;
+          display: block;
+          width: 160px!important;
+          height: 45px;
+          outline: none;
+          font-size: 18px;
+          font-weight: 500;
+          border-radius: 6px;
+          cursor: pointer;
+          flex-wrap: nowrap;
+          background: crimson;
+          border: 2px solid crimson;
+          transition: all 0.3s ease;
+        }
+        .right form .button-area button:hover{
+          color: crimson;
+          background: none;
+        }
+        /* footer section styling */
+        footer{
+            background: #111;
+            padding: 15px 23px;
+            color: #fff;
+            text-align: center;
+        }
+        footer span a{
+            color: crimson;
+            text-decoration: none;
+        }
+        footer span a:hover{
+            text-decoration: underline;
+        }
+        
+        
+        /* responsive media query start */
+        @media (max-width: 1104px) {
+            .about .about-content .left img{
+                height: 350px;
+                width: 350px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .max-width{
+                padding: 0 50px;
+                color: dark violet;
+            }
+        }
+        @media (max-width: 947px){
+            .menu-btn{
+                display: block;
+                z-index: 999;
+            }
+            .menu-btn i.active:before{
+                content: "\f00d";
+            }
+            .navbar .menu{
+                position: fixed;
+                height: 100vh;
+                width: 100%;
+                left: -100%;
+                top: 0;
+                background: #111;
+                text-align: center;
+                padding-top: 80px;
+                transition: all 0.3s ease;
+                margin-left: auto;
+            }
+            .navbar .menu.active{
+                left: 0;
+            }
+            .navbar .menu li{
+                display: block;
+            }
+            .navbar .menu li a{
+                display: inline-block;
+                margin: 20px 0;
+                font-size: 25px;
+            }
+            .home .home-content .text-2{
+                font-size: 70px;
+            }
+            .home .home-content .text-3{
+                font-size: 35px;
+            }
+            .home .home-content a{
+                font-size: 23px;
+                padding: 10px 30px;
+            }
+            .max-width{
+                max-width: 930px;
+            }
+            .about .about-content .column{
+                width: 100%;
+            }
+            .about .about-content .left{
+                display: flex;
+                justify-content: center;
+                margin: 0 auto 60px;
+            }
+            .about .about-content .right{
+                flex: 100%;
+            }
+            .services .serv-content .card{
+                width: calc(50% - 10px);
+                margin-bottom: 20px;
+            }
+            .skills .skills-content .column,
+            .contact .contact-content .column{
+                width: 100%;
+                margin-bottom: 35px;
+            }
+        }
+        
+        @media (max-width: 690px) {
+            .max-width{
+                padding: 0 23px;
+            }
+            .home .home-content .text-2{
+                font-size: 60px;
+            }
+            .home .home-content .text-3{
+                font-size: 32px;
+            }
+            .home .home-content a{
+                font-size: 20px;
+            }
+            .services .serv-content .card{
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .home .home-content .text-2{
+                font-size: 50px;
+            }
+            .home .home-content .text-3{
+                font-size: 27px;
+            }
+            .about .about-content .right .text,
+            .skills .skills-content .left .text{
+                font-size: 19px;
+            }
+            .contact .right form .fields{
+                flex-direction: column;
+            }
+            .contact .right form .name,
+            .contact .right form .email{
+                margin: 0;
+            }
+            .right form .error-box{
+               width: 150px;
+            }
+            .scroll-up-btn{
+                right: 15px;
+                bottom: 15px;
+                height: 38px;
+                width: 35px;
+                font-size: 23px;
+                line-height: 28px;
+            }
+        }
+ 
+ .flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+https://i.imgur.com/lumQnydl.png
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Importing Google font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+h1 {
+    color: #333333;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'verdana';
+    text-align: right; /* Mueve el texto hacia la derecha */
+    margin-right: 50px; /* Opcional: puedes ajustar el margen derecho */
+    margin-left: 0; /* Elimina el margen izquierdo */
+}
+h1 span {
+    color: #333333;
+    position: relative;
+}
+h1 span::before {
+    content: "";
+    height: 30px;
+    width: 2px;
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    background: #BD53ED;
+    transform: translateY(-45%);
+    animation: blink 0.7s infinite;
+}
+h1 span.stop-blinking::before {
+    animation: none;
+}
+@keyframes blink {
+    50% { opacity: 0 }
+}
+
+
+/* media query for small screens */
+@media (max-width: 768px) {
+    .max-width {
+        padding: 0 20px; /* Adjust elements size padding  */
+    }
+    .card {
+        width: 100%; 
+    }
+    .text {
+        font-size: 16px; /* Adjust fonts size */
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  /* Global styles can go here if needed */
+}
+
+.icons a {
+  background: #ecf0f3;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  margin: 0 10px;
+  margin-bottom: 15px;
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: -.5px 5.5px 15px #ffffff;
+  border: 1px solid red; /* Thin red border */
+}
+
+.icons a:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #ecf0f3;
+  box-shadow: inset -.15px -.15px '.25% #ffffff,  /* Reduce the glow */
+              inset .25px 1px 1px #ceced1;     /* Adjust shadow size */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+  /* Global styles can go here if needed */
+}
+
+.icons a {
+  background: #ecf0f3;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  margin: 0 10px;
+  margin-bottom: 15px;
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: -.5px 5.5px 15px #ffffff;
+  border: 1px solid red; /* Thin red border */
+}
+
+.icons a:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #ecf0f3;
+  box-shadow: inset -0.25px -0.25px 1px #ffffff,  /* Minimal glow */
+              inset 0.5px 0.5px 1px #ceced1;   /* Minimal shadow size */
+}
+
+.icons a i {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
+  line-height: 60px;
+}
+
+.icons a:hover i {
+  transform: scale(0.9);
+}
+
+.icons a.fb i {
+  color: #4267B2;
+}
+
+.icons a.twitter i {
+  color: #1DA1F2;
+}
+
+.icons a.insta i {
+  color: #E1306C;
+}
+
+.icons a.git i {
+  color: #333;
+}
+
+.icons a.yt i {
+  color: #ff0000;
+}
+
+.logo {
+    border-radius: 50%;
+    width: 50%;
+        background-color: transparent;
+
+}
+
+.logo img {
+    border-radius: 50%;
+    background-color: transparent;
+    margin-bottom: 2px;
+    border: 2px solid #333333;
+}
+
+menu-bt.menu-btn i {
+    color: #333333; /* Cambia el color de las barras a un gris oscuro o el color que prefieras */
+}
+
+.menu-btn i.active {
+    color: #ff6600; /* Cambia a otro color cuando el menú esté activo */
+}
+        </style>
+</head>
+<body>
+    
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo">
+                <a>
+                    <img src="https://i.imgur.com/lumQnydl.png
+
+
+"
+
+" alt="logo" style="width:80%";> 
+                    <a href="#"><span>Portfo</span><span>lio.</span></a>
+                </a>
             </div>
-            <div class="seller-inputs">
-              <div class="seller-input-box">
-                <input
-                  type="text"
-                  id="email"
-                  placeholder="Email Address"
-                />
-              </div>
-              <div class="seller-input-box">
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="Display Name"
-                  className="pmlink-input"
-                />
-              </div>
-              <div class="username-help-text">
-                This is what will be displayed on the leaderboard
-              </div>
-              <div class="paymentlink-error" id="paymentlink-error">
-                <p></p>
-              </div>
+                                
+
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#services" class="menu-btn">Projects</a></li>
+                <li><a href="#skills" class="menu-btn">Skills</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+            </ul>
+
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
             </div>
-            <div class="button-center">
-              <button id="submit" class="button">
-                Get Seller Link
-              </button>
-            </div>
-          </div>
         </div>
-        <!-- Hidden on initial display and shows -->
-        <div class="signup-complete" id="paymentlink-wrapper">
-          Copy your personal link below to share on your socials.
-          <div class="payment-link-section">
-            <span class="payment-link" id="payment-link"></span>
-            <span class="copy-button" id="copy-button">
-              <img src="/assets/img/copyicon.png" alt="Copy Payment Link" class="copy-img"/>
-            </span>
-          </div>
+    </nav>
+    <!-- home section start -->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Hello, this is my <span class="typing-name"></span></div>
+                <div class="text-2">G.I.B.</div>
+                <div class="text-3">And I'm a <span class="typing"></span></div>
+                <a href="guillermoiranzo95@gmail.com">Hire me</a>
+            </div>
         </div>
-      </div> 
-      <div style="width: 100%; height: 227px;"></div>
-  <p class="warning-title">No Static Files Were Found</p>
-  <p>
-    <div class="warning">When using React to complete this challenge, the app service renders this page.</div>
-    <div class="warning">If you are using a Vanilla stack for this challenge make sure you have the correct value in the
-      STATIC_DIR variable.</div>
-  </p>
-    </footer>
-    <script>/** Common helpers used on multiple pages */ 
+    </section>
 
-/**
- * Sets the visual display of a page to show that a request
- * to the server is being processed. If a spinner is found on the page
- * it will be shown, and the submit button will be disabled. 
- * If called with processing set to false the spinner will be hidden and
- * the submit buttons will be enabled.
- * @param {boolean} processing true if processing
- */
-export function setProcessing(processing){
-  let spinner = document.getElementById("spinner");
-  if (spinner) {
-    if (processing)
-    {
-      spinner.style.display = "block";  
-    }
-    else {
-      spinner.style.display = "none";
-    }
-  }
+    <h1>Coding is <span class="typing-coding"></span></h1>
 
-  let submitBtn = document.getElementById("submit");
-  if (submitBtn) {
-    if (processing) {
-      submitBtn.disabled = true;
-    }
-    else {
-      submitBtn.disabled = false;
-    }
-  } 
-}
+     <!-- about section start -->
+     <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">About me</h2>
+            <div class="about-content">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="https://i.imgur.com/cOF4GnEl.jpeg
+" alt="guille-1" style="width:100%;height:100%">
+                      </div>
+                      <div class="flip-card-back">
+                            <img src="https://i.imgur.com/PPAQzT6m.jpeg
 
-// eslint-disable-next-line no-useless-escape
-export const emailPattern = "^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+" alt="guille-2" style="width:100%;height:100%">
+                  
+                        <h1>G.I.B.</h1> 
+                        <p>Front-End Developer & Web Designer</p> 
+                        <p>We love that guy</p>
+                      </div>
+                    </div>
+                  </div>
+                <div class="column right">
+                    <div class="text" >I'm Guillermo Iranzo and I'm a Front End-Developer<span class="typing-2"></span></div>
+                    <p>As a front-end developer, I focus on creating the user interface and experience for websites and web applications. I work with technologies like HTML, CSS, and JavaScript to build responsive layouts, intuitive navigation, and dynamic features that users interact with. It's my job to ensure that the site looks great and functions smoothly across different devices and browsers, while also optimizing performance and accessibility. I want to collaborate closely with designers to turn mockups into working code and often team up with back-end developers to integrate the front-end with server-side logic. My goal is to create a seamless and engaging experience for users.</p>
+                    <a href="#">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/**
- * Returns a cents based price to a dollars
- * @param {string} price an amount in cents
- * @param {boolean} decimal sets the price to include 2 decimal places
- * @returns 
- */
-export const getPriceDollars = (price, decimal = false) => {
-  if (decimal) {
-    price = Number(price / 100.0).toFixed(2);
-  } else {
-    price = Math.round(price / 100.0);
-  }
-  return "$" + price;
-};
+    <!-- skills section start -->
+    <section class="skills" id="skills">
+        <div class="max-width">
+            <h2 class="title">My skills</h2>
+            <div class="skills-content">
+                <div class="column left">
+                    <div class="text">My creative skills & experiences.</div>
+                    <p>My creative skills and experiences are centered around delivering state-of-the-art solutions that bring real value to clients. I love combining innovative ideas with thoughtful stylization to ensure that the final product not only has a beautiful look but is also responsive and functional across all platforms. Whether it’s designing or developing new concepts, I focus on creating solutions that provide a pleasant experience for users, making sure they resonate with the client’s vision. My goal is to work closely with clients to bring their ideas to life in a way that is both aesthetically stunning and impactful, leaving them with results they can be proud of.</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div class="column right">
+                    <div class="bars">
+                        <div class="info">
+                            <span>HTML</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="line html"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>CSS</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="line css"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>JavaScript</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="line js"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>PHP</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="line php"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>MySQL</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="line mysql"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- services section start -->
+<section class="services" id="services">
+    <div class="max-width">
+        <h2 class="title">My projects</h2>
+        <div class="serv-content">
+            <div class="card">
+                <div class="box">
+                    <i class="fa fa-cubes" style="font-size:48px;color:yellow"></i>
+                    <div class="text">Web Design</div>
+                    <p>A modern, fully responsive online store built to provide a seamless shopping experience with a clean and elegant design.</p>
+                </div>
+                <div class="btn">
+                    <a href="file:///home/chronos/u-d784861ba9539d043384938b0a76939319c9e23f/MyFiles/PROJECT2024/onlinestore.html"><span>Online Store</span></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class='fas fa-music' style='font-size:48px;color:yellow'></i>
+                    <div class="text">Playable Coding</div>
+                    <p>An interactive piano player where users can explore coding through music, combining creativity with programming.</p>
+                </div>
+                <div class="btn">
+                    <a href="file:///home/chronos/u-d784861ba9539d043384938b0a76939319c9e23f/MyFiles/PROJECT2024/piano.html"><span>Piano player</span></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class='fas fa-code' style='font-size:48px;color:yellow'></i>
+                    <div class="text">Apps Design</div>
+                    <p>A sleek and efficient calculator app that simplifies complex calculations with a user-friendly design and smooth functionality.</p>
+                </div>
+                <div class="btn">
+                    <a href="file:///home/chronos/u-d784861ba9539d043384938b0a76939319c9e23f/MyFiles/PROJECT2024/calculator.html"><span>Calculator</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-import { setProcessing, getPriceDollars } from "./common.js";
+<section class="services" id="services">
+    <div class="max-width">
+        <div class="serv-content">
+            <div class="card">
+                <div class="box">
+                    <i class="fa fa-camera-retro" style="font-size:48px;color:yellow"></i>
+                    <div class="text">Gallery</div>
+                    <p>A personal gallery showcasing a collection of favorite photos, designed with a focus on aesthetic presentation and ease of navigation.</p>
+                </div>
+                <div class="btn">
+                    <a href="file:///home/chronos/u-d784861ba9539d043384938b0a76939319c9e23f/MyFiles/PROJECT2024/gallery.html" src="gallery.html"><span>Favorite pics</span></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fa fa-film" style="font-size:48px;color:yellow"></i>
+                    <div class="text">Videoclips</div>
+                    <p>A collection of curated video clips, offering a visually rich and engaging viewing experience with intuitive controls.</p>
+                </div>
+                <div class="btn">
+                    <a href="#"><span>Videoclip</span></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class='far fa-file-code' style='font-size:48px;color:yellow'></i>
+                    <div class="text">File Design</div>
+                    <p>A secure and easy-to-use login form designed to provide a smooth user authentication experience, ensuring data protection.</p>
+                </div>
+                <div class="btn">
+                    <a href="file:///home/chronos/u-d784861ba9539d043384938b0a76939319c9e23f/MyFiles/PROJECT2024/loginform.html" src="loginform.html"><span>LoginForm</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-/**
- * Generates a row for the leaderboard table displaying the fan's name 
- * and total amount sold. 
- * @param {string} name - the sellers name
- * @param {string} amount - the total amount sold through their Payment Link 
- * @returns A div generated from the template element within the leaderboard.html. 
- */
-const showLeaderBoardRow = function ({ name, amount }) {
-  //use template to create a div for the given
-  const price = getPriceDollars(amount, true);
-  const rowTemplate = document.querySelector('#seller-summary');
-  const rowDiv = rowTemplate.content.firstElementChild.cloneNode(true);
-  let nameDiv = rowDiv.getElementsByClassName('summary-name')[0];
-  nameDiv.textContent = name;
-  let priceDiv = rowDiv.getElementsByClassName('summary-sale')[0];
-  priceDiv.textContent = price;
-  return rowDiv;
-}
+<section class="services" id="services">
+    <div class="max-width">
+        <div class="serv-content">
+            <div class="card">
+                <div class="box">
+                    <i class="fa fa-book" style="font-size:48px;color:yellow"></i>
+                    <div class="text">E-books</div>
+                    <p>A collection of e-books designed for easy reading and seamless navigation, offering a digital reading experience for all users.</p>
+                </div>
+                <div class="btn">
+                    <a href="file:///home/chronos/u-d784861ba9539d043384938b0a76939319c9e23f/MyFiles/PROJECT2024/jeronimo-book-1.pdf" src="jeronimo-book-1.pdf"><span>E-books</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-/**
- * Builds the leaderboard table, generating a row for each seller. 
- * @param {} sellers 
- */
-const showSellers = function (sellers) {
-  let sellerTable = document.getElementById("summary-table");
-  sellers.forEach((seller) => {
-    let row = showLeaderBoardRow({
-      name: seller.name,
-      email: seller.email,
-      amount: seller.amount
-    });
-    sellerTable.append(row);
-  });
-}
 
-/**
- * Shows the leaderboard.html page by 
- */
-const showPage = async function (){
-  /** 
-   * TODO: Integrate Stripe
-   * Milestone 2: Complete this function to display the leaderboard of sellers. 
-   */
-}
-
-/**
- * Make call to server to get sorted leaderboard
-  * @returns {Array} sellers - Returns Seller array with name, email, and total amount that is sorted desc by total amount
- */
-const getLeaderboard = async () => {
-  /** 
-   * TODO: Integrate Stripe
-   * Milestone 2: complete this function to fetch the fans to display on the 
-   * leaderboard. 
-   */
-};
-
-window.addEventListener('DOMContentLoaded', (event) => {
-  showPage();
-});
-import {emailPattern, setProcessing} from "./common.js";
-
-/**
- * Handle the user completing the registration form. 
- */
-const handleClick = async function (event)
-{
-  event.preventDefault();
-  /** 
-   * TODO: Integrate Stripe
-   * Milestone 1: Complete this function to return a payment for the fan 
-   * once they have filled out the registration form. Their email and display name 
-   * are both required.  
-   * 
-   * You can use the setProcessing() in common.js
-   * to help control the UX during calls to the server, and setError() to display
-   * any errors. 
-   * 
-   * After you've received the Payment Link from the server 
-   * call showSignupComplete to display the seller's Payment Link.  
-   */
-}
-
-/** 
- * Helper function to show an error message on the page. 
- * @param {string} errorMsg - msg to be displayed
- */
-const setError = function (errorMsg) {
-  const errDiv = document.getElementById('paymentlink-error');
-  const messageElement = errDiv.getElementsByTagName("p")[0];
-  messageElement.textContent = errorMsg;
-  errDiv.style.display = 'block';
-}
-
-/**
- * @returns the Payment Link displayed on the page. 
- */
-const getPaymentLink = function () {
-  let paymentLinkDisplay = document.getElementById("payment-link");
-  return paymentLinkDisplay.textContent;
-}
-
-/**
- * Displays the provided Payment Link 
- * @param {string} paymentLinkUrl
- */
-const setPaymentLink = function (paymentLinkUrl) {
-  let paymentLinkDisplay = document.getElementById("payment-link");
-  paymentLinkDisplay.textContent = paymentLinkUrl;
-}
-
-/**
- * Replaces the registration form with a sign up complete message
- * and the seller's Payment Link. 
- * @param {string} paymentLinkUrl 
- */
-const showSignupComplete = function (paymentLinkUrl) {
-  setPaymentLink(paymentLinkUrl);
-  togglePaymentLinkDiv(true);
-  let formWrapper = document.getElementById("form-div");
-  formWrapper.style.display = "none";
-}
-
-/**
- * Toggles the div showing a Payment Link either showing or hidding it. 
- * @param {boolean} display 
- */
-const togglePaymentLinkDiv = function (display) {
-  let paymentLinkWrapper = document.getElementById("paymentlink-wrapper");
-  if (display) {
-    paymentLinkWrapper.style.display = "block";
-    paymentLinkWrapper.scrollIntoView();
-  } else {
-    paymentLinkWrapper.style.display = "none";
-  }
-}
-
-/**
- * Copy the Payment Link to the clipboard. 
- */
- const copyToClipboard = async () => {
-  const paymentLink = getPaymentLink();
-  navigator.clipboard.writeText(paymentLink);
-};
-
-window.addEventListener('DOMContentLoaded', (event) => {
-  togglePaymentLinkDiv(false);
-  const submitBtn = document.getElementById('submit');
-  submitBtn.addEventListener('click', handleClick);
-  const emailInput = document.getElementById('email');
-  emailInput.setAttribute('pattern', emailPattern);
-  const clipboardBtn = document.getElementById('copy-button');
-  clipboardBtn.addEventListener('click', copyToClipboard);
-  const errorDivs = document.getElementById('paymentlink-error');
-  errorDivs.style.display = 'none';
-});
-
-<script async
-  src="https://js.stripe.com/v3/buy-button.js">
-</script>
-
+    <footer>
+    <div class="icons">
+    <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="insta"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="git"><i class="fab fa-github"></i></a>
+    <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+  </div>
+  <section>
 <stripe-buy-button
   buy-button-id="buy_btn_1Q7FX1BAfCTkZVSmsjqtLNgJ"
   publishable-key="pk_test_51Q7DpLBAfCTkZVSmJuNpnPGeGcQCxU9J6yX3xuMMP7pNRgk2LegmDghKEzd15YfmqO1oB8gpxZPwAHWbK3HaOR8f00iuBcau5R"
 >
-</stripe-buy-button>
+</stripe-buy-button></section>
+        <span>Created By <a href="https://www.nfed.com">NFED</a> | <span class="far fa-copyright"></span> 2024 All rights reserved.</span>
+    </footer>
 
-<script async
+
+    <!-- JavaScript typing effect -->
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                // Sticky navbar on scroll
+                if(this.scrollY > 20){
+                    $('.navbar').addClass("sticky");
+                } else {
+                    $('.navbar').removeClass("sticky");
+                }
+
+                // Scroll-up button show/hide
+                if(this.scrollY > 500){
+                    $('.scroll-up-btn').addClass("show");
+                } else {
+                    $('.scroll-up-btn').removeClass("show");
+                }
+            });
+
+            // Slide-up script
+            $('.scroll-up-btn').click(function(){
+                $('html').animate({scrollTop: 0});
+                $('html').css("scrollBehavior", "auto");
+            });
+
+            // Smooth scroll on menu items click
+            $('.navbar .menu li a').click(function(){
+                $('html').css("scrollBehavior", "smooth");
+            });
+
+            // Toggle menu/navbar script
+            $('.menu-btn').click(function(){
+                $('.navbar .menu').toggleClass("active");
+                $('.menu-btn i').toggleClass("active");
+            });
+
+            // Typing effect for "Coding is ..." using Typed.js
+            new Typed(".typing-coding", {
+                strings: ["like Art", "the Future", "Everything"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+
+            // Typing effect for "Hello, my name is ..." using Typed.js
+            new Typed(".typing-name", {
+                strings: ["", "", "Porfolio"],
+                typeSpeed: 100,
+                backSpeed: 70,
+                loop: true
+            });
+
+            // Typing effect for the section "home" using Typed.js
+            new Typed(".typing", {
+                strings: ["Front-End Developer", "Web Designer"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+        });
+        
+      
+    </script>
+    <script async
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
 
-<stripe-buy-button
-  buy-button-id="buy_btn_1Q7LEFBAfCTkZVSmKmYgk3xZ"
-  publishable-key="pk_test_51Q7DpLBAfCTkZVSmJuNpnPGeGcQCxU9J6yX3xuMMP7pNRgk2LegmDghKEzd15YfmqO1oB8gpxZPwAHWbK3HaOR8f00iuBcau5R"
->
-</stripe-buy-button>
-
-</script>
-  </body>
-  <template id="seller-summary">
-    <div class="summary-row">
-      <div class="summary-name">
-      </div>
-      <div key={amount} class="summary-sale">
-      </div>
-    </div>
-  </template>
+</body>
 </html>
