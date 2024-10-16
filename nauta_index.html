@@ -814,6 +814,7 @@ h1 span.stop-blinking::before {
   position: relative;
   height: 60px;
   width: 60px;
+
   margin: 0 10px;
   margin-bottom: 15px;
   display: inline-flex;
@@ -844,7 +845,8 @@ h1 span.stop-blinking::before {
   width: 100%;
   height: 100%;
   font-size: 25px;
-  line-height: 60px;
+  line-height: 60px;    
+
 }
 
 .icons a:hover i {
@@ -892,15 +894,105 @@ menu-bt.menu-btn i {
 .menu-btn i.active {
     color: #ff6600; /* Cambia a otro color cuando el menú esté activo */
 }
+
+nav{
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 80px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+nav .nav-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+}
+.nav-content .toggle-btn,
+.nav-content span a{
+  height: 60px;
+  width: 60px;
+  background: red;
+  color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+.nav-content .toggle-btn{
+  font-size: 35px;
+  color: #0e2431;
+  z-index: 100;
+  cursor: pointer;
+  transform: rotate(-225deg);
+  transition: all 0.6s ease;
+}
+nav.open .toggle-btn{
+  transform: rotate(0deg);
+}
+.nav-content span{
+  position: absolute;
+  transition: all 0.6s ease;
+  opacity: 0.8;
+}
+nav.open .nav-content span{
+  transform: rotate(calc(var(--i) * (360deg/8))) translateY(120px);
+  opacity: 1;
+}
+.nav-content span a{
+  text-decoration: none;
+  transform: rotate(45deg);
+}
+.nav-content span a i{
+  font-size: 24px;
+  transform: rotate(calc(var(--i) * (360deg/ -8)));
+  opacity: 0.8;
+  transition: 0.2s;
+}
+.nav-content span a:hover i{
+  opacity: 1;
+}
+.container-top {
+  display: flex;
+  align-items: flex-end;
+  width: 60px;
+  background:linear-gradient(yellow 100vh,red 0);
+  border-radius: 50%;
+}
+
+.top {
+  position: sticky;
+  bottom: 18px;      
+  margin-right:0px;
+  
+  /* visual styling */
+  width:100%;
+  aspect-ratio:1;
+  background:none;
+  
+}
+.top:before {
+  content:"";
+  position:absolute;
+  inset:30%;
+  transform:translateY(20%) rotate(-45deg);
+  border-top:5px solid red;
+  border-right:5px solid red;
+}
+
+p {
+  font-size: 15px;
+}
         </style>
 </head>
 <body>
-    
-    <div class="scroll-up-btn">
-        <i class="fas fa-angle-up"></i>
-    </div>
-    <nav class="navbar">
-        <div class="max-width">
+ 
+   
             <div class="logo">
                 <a>
                     <img src="https://i.imgur.com/lumQnydl.png
@@ -909,10 +1001,33 @@ menu-bt.menu-btn i {
 "
 
 " alt="logo" style="width:80%";> 
-                    <a href="#"><span>Portfo</span><span>lio.</span></a>
-                </a>
+                    <h1>Portfo</span><span>lio.</span></a>
+                </a></h1>
             </div>
                                 
+     <nav>
+    <div class="nav-content">
+      <div class="toggle-btn">
+        <i class='bx bx-plus'></i>
+      </div>
+      <span style="--i:1;">
+        <a href="#home"><i class='fa fa-home'></i></a>
+      </span>
+      <span style="--i:2;">
+        <a href="#about"><i class='fa fa-info-circle'></i></a>
+      </span>
+      <span style="--i:3;">
+        <a href="#services"><i class='fa fa-newspaper'></i></a>
+      </span>
+      <span style="--i:4;">
+        <a href="#skills"><i class='fa fa-file' ></i></a>
+      </span>
+      <span style="--i:5;">
+        <a href="#"><i class='fa fa-envelope' ></i></a>
+      </span>
+    </div>
+  </nav>
+
 
             <ul class="menu">
                 <li><a href="#home" class="menu-btn">Home</a></li>
@@ -957,7 +1072,7 @@ menu-bt.menu-btn i {
 
 " alt="guille-2" style="width:100%;height:100%">
                   
-                        <h1>G.I.B.</h1> 
+                        <h1></h1> 
                         <p>Front-End Developer & Web Designer</p> 
                         <p>We love that guy</p>
                       </div>
@@ -986,37 +1101,32 @@ menu-bt.menu-btn i {
                     <div class="bars">
                         <div class="info">
                             <span>HTML</span>
-                            <span>90%</span>
+                            <span>76.0%</span>
                         </div>
                         <div class="line html"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
                             <span>CSS</span>
-                            <span>60%</span>
+                            <span>11.0%</span>
                         </div>
                         <div class="line css"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
                             <span>JavaScript</span>
-                            <span>80%</span>
+                            <span>7.0%</span>
                         </div>
                         <div class="line js"></div>
                     </div>
                     <div class="bars">
                         <div class="info">
-                            <span>PHP</span>
-                            <span>50%</span>
+                            <span>Python</span>
+                            <span>6.0%</span>
                         </div>
                         <div class="line php"></div>
                     </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>MySQL</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="line mysql"></div>
+                
                     </div>
                 </div>
             </div>
@@ -1125,6 +1235,7 @@ menu-bt.menu-btn i {
     <a href="#" class="git"><i class="fab fa-github"></i></a>
     <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
   </div>
+  
   <section>
 <stripe-buy-button
   buy-button-id="buy_btn_1Q7FX1BAfCTkZVSmsjqtLNgJ"
@@ -1132,6 +1243,9 @@ menu-bt.menu-btn i {
 >
 </stripe-buy-button></section>
         <span>Created By <a href="https://www.nfed.com">NFED</a> | <span class="far fa-copyright"></span> 2024 All rights reserved.</span>
+         <div class="container-top">
+    <a href="#" class="top"></a>
+  </div>
     </footer>
 
 
@@ -1195,9 +1309,40 @@ menu-bt.menu-btn i {
                 loop: true
             });
         });
-        
+  // getting HTML elements
+  const nav = document.querySelector("nav"),
+        toggleBtn = nav.querySelector(".toggle-btn");
+    toggleBtn.addEventListener("click" , () =>{
+      nav.classList.toggle("open");
+    });
+  // js code to make draggable nav
+  function onDrag({movementY}) { //movementY gets mouse vertical value
+    const navStyle = window.getComputedStyle(nav), //getting all css style of nav
+          navTop = parseInt(navStyle.top), // getting nav top value & convert it into string
+          navHeight = parseInt(navStyle.height), // getting nav height value & convert it into string
+          windHeight = window.innerHeight; // getting window height
+    nav.style.top = navTop > 0 ? `${navTop + movementY}px` : "1px";
+    if(navTop > windHeight - navHeight){
+      nav.style.top = `${windHeight - navHeight}px`;
+    }
+  }
+  //this function will call when user click mouse's button and  move mouse on nav
+  nav.addEventListener("mousedown", () =>{
+    nav.addEventListener("mousemove", onDrag);
+  });
+  //these function will call when user relase mouse button and leave mouse from nav
+  nav.addEventListener("mouseup", () =>{
+    nav.removeEventListener("mousemove", onDrag);
+  });
+  nav.addEventListener("mouseleave", () =>{
+    nav.removeEventListener("mousemove", onDrag);
+  });
+ 
       
     </script>
+    <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
 
 </body>
 </html>
