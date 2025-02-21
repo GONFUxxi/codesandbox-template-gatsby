@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<!-- Coding By Red Gonfu- www.gokuservic.es -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scuba Gear Website | Red Gonfu</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontawesome Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  </head>
+  <body>
+    <header>
+          <div class="logo">
+                <a><img src="https://i.imgur.com/OVa6lMfm.png" alt="logo" style="width:100%";> 
+            </div>
+      <nav class="navbar">
+        <h2 class="logo"><a href="#">LOGO</a></h2>
+        <input type="checkbox" id="menu-toggler">
+        <label for="menu-toggler" id="hamburger-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </label>
+        <ul class="all-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <style>@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk";
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #000000;
+  margin-right: 8%;
+  color: #FAFAFA;
+}
+.btn {
+  display: inline-block;
+  background-color: #000000;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background-color: #b71c1c;
+}
+.button:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(181, 160, 255);
+  align-items: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #000000;
+}
+.navbar {
+  display: flex;
+  padding: 0 10px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar input#menu-toggler {
+  display: none;
+}
+.navbar #hamburger-btn {
+  cursor: pointer;
+  display: none;
+}
+.navbar .all-links {
+  display: flex;
+  align-items: center;
+}
+.navbar .all-links li {
+  position: relative;
+  list-style: none;
+}
+.navbar .logo a {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+}
+header a, footer a {
+  margin-left: 40px;
+  text-decoration: none;
+  color: #fff;
+  height: 100%;
+  padding: 20px 0;
+  display: inline-block;
+}
+header a:hover, footer a:hover {
+  color: #ddd;
+}
+.homepage {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background: url("images/home-bg.jpg");
+  background-position: center 65%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.homepage::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+.homepage .content {
+    color: #990000;
+  display: flex;
+  height: 85%;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.homepage .content h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.homepage .content .text {
+  margin-bottom: 50px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.content a {
+  color: #000;
+  display: block;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0 10px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  background: #fff;
+  border: 2px solid #fff;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+.content a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.3);
+}
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px 0 0;
+}
+section h2 {
+  font-size: 2rem;
+}
+section > p {
+  text-align: center;
+}
+section .cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-top: 50px;
+  padding: 0 00px;
+  justify-content: space-between;
+}
+section.about {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.about .company-info {
+  margin-top: 30px;
+}
+.about h3 {
+  margin: 30px 0 10px;
+}
+.about .team {
+  text-align: left;
+  width: 100%;
+}
+.about .team ul {
+  padding-left: 20px;
+}
+section .cards .card {
+  background: #990000;
+  padding: 15px 15px;
+  list-style: none;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+  margin-bottom: 40px;
+  width: calc(100% / 3 - 30px);
+  text-align: center;
+}
+.portfolio .cards .card {
+  padding: 0 0 20px;
+}
+.services .card img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.portfolio .card img {
+  width: 100%;
+  padding-bottom: 10px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 7px;
+}
+.cards .card p {
+  padding: 0 15px;
+  margin-top: 5px;
+  padding-bottom: 10%;
+}
+.about .row {
+  padding: 0 10px;
+}
+.contact .row {
+  margin: 60px 0 90px;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact .row .col {
+  padding: 0 10px;
+  width: calc(100% / 2 - 50px);
+}
+.contact .col p {
+  margin-bottom: 10px;
+}
+.contact .col p i {
+  color: #80DEEA;
+  margin-right: 10px;
+}
+.contact form input {
+  height: 45px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid #bfbfbf;
+}
+.contact form textarea {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  height: 150px;
+  outline: none;
+  resize: vertical;
+  border: 1px solid #bfbfbf;
+}
+.contact form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 17px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #B71C1C;
+  transition: 0.2s ease;
+}
+.contact form button:hover {
+  background: #525252;
+}
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #000;
+  padding: 20px 0;
+}
+footer div {
+  padding: 0 10px;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+footer span {
+  color: #fff;
+}
+footer a {
+  padding: 0;
+}
+@media screen and (max-width: 860px) {
+  .navbar .all-links {
+    position: fixed;
+    left: -100%;
+    width: 200px;
+    display: block;
+    margin-top: -50%;
+    height: 100vh;
+    top: 200px;
+    background: #000000;
+    transition: left 0.3s ease;
+  }
+  .navbar #menu-toggler:checked~.all-links {
+    left: 0;
+  }
+  .navbar .all-links li {
+    font-size: 18px;
+    background: #000000;
+    color: #fff;
+    margin-top: 0;
+  }
+  .navbar #hamburger-btn {
+    display: block;
+  }
+  section > p {
+    text-align: center;
+  }
+  section .cards .card {
+    width: calc(100% / 2 - 15px);
+    margin-bottom: 30px;
+  }
+  .homepage .content h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .homepage .content .text {
+    font-size: 17px;
+  }
+  .content a {
+    font-size: 17px;
+    padding: 9px 20px;
+  }
+  .contact .row {
+    flex-direction: column;
+  }
+  .contact .row .col {
+    width: 100%;
+  }
+  .contact .row .col:last-child {
+    margin-top: 40px;
+  }
+  footer a {
+    height: 0;
+  }
+
+}
+@media screen and (max-width: 560px) {
+  section .cards .card {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}</style>
+    <section class="homepage" id="home">
+      <div class="content">
+        <div class="text">
+          <h1>Scuba Gear and Essentials</h1>
+          <p>
+            Discover top-quality scuba gear for unforgettable submarine adventures. <br> Gear up and make lasting memories.</p>
+      
+        </div>
+        <a href="#services">Our Services</a>
+      </div>
+    </section>
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <p>Explore our wide range of Scuba gear services.</p>
+      <ul class="cards">
+        <li class="card">
+          <img src="https://i.imgur.com/RJmOTGqm.jpeg" alt="img">
+          <h3>Underwater gear</h3>
+          <p>Ideal for diving in temperate or warm waters. This suit allows a thin layer of water to remain between the suit and the body, which is warmed by body heat. It provides insulation but is not suitable for cold waters.</p>
+                
+        <a href="https://buy.stripe.com/test_7sI295bRxe54cU09AB" class="btn">Buy Underwater Gear Now</a>
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/BXoBXlGl.jpeg
+" alt="img">
+          <h3>Drysuit</h3>
+          <p>Perfect for diving in cold waters. Unlike a wetsuit, a drysuit keeps the diver completely dry, thanks to seals at the wrists and neck. It is ideal for prolonged dives in cold conditions.</p>
+          
+            <a href="https://buy.stripe.com/test_00g151cVB6CC2fmeUW" class="btn">Buy Drysuit</a>
+            
+          
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/z55wzN3m.jpeg
+" alt="img">
+          <h3>Neoprene Suit</h3>
+          <p>This can be either a wetsuit or a drysuit, depending on its design. Neoprene suits are known for their versatility and provide good thermal protection across a wide range of temperatures.</p>
+             <a  href="https://buy.stripe.com/test_aEU4hd6xd0ee2fmcMP" class="btn">Buy Neoprene Suit</a>
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/uuPknURl.jpeg
+" alt="img">
+          <h3>Survival Suit</h3>
+          <p>Primarily used in commercial diving or extreme situations, this suit is designed to provide buoyancy and warmth in case of an emergency in cold water.</p>
+             <a href="ttps://buy.stripe.com/test_fZe7tpdZFd10f2828c" class="btn">Buy Survival Suit</a>
+          
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/W2QcPHcm.jpeg
+" alt="img">
+          <h3>Deep Diving Suit</h3>
+          <p>These suits are designed for deep dives where water pressure is substantial. They are often rigid and made to withstand extreme pressure conditions.</p>
+             <a href="https://buy.stripe.com/test_4gw00X4p58KKbPWbIO" class="btn">Buy Deep Diving Suit</a>
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/X8oDjqkm.jpeg
+" alt="img">
+          <h3>Cave Diving Suit</h3>
+          <p>These suits are specific for cave diving, where there is a high risk of scrapes and cuts. They are typically more durable and designed to protect the diver in tight and rocky environments.</p>
+           <a href="https://buy.stripe.com/test_eVa8xtdZFe54aLS005" class="btn">Buy Cave Diving Suit</a>
+      </ul>
+    </section>
+    <section class="portfolio" id="portfolio">
+      <h2>Our Portfolio</h2>
+      <p>Take a look at some of our memorable Scuba adventures.</p>
+      <ul class="cards">
+        <li class="card">
+          <img src="https://i.imgur.com/pDswyRxh.jpeg
+" alt="img">
+          <h3>Mountain Scuba</h3>
+          <p>Embark on an exhilarating hiking adventure in the breathtaking mountain ranges.</p>
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/lTgRXgmh.jpeg
+" alt="img">
+          <h3>Lakeside Scuba</h3>
+          <p>Enjoy a tranquile Scuba experience by the serene shores of picturesque lakes.</p>
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/NsjqA7ch.jpeg
+" alt="img">
+          <h3>Beach Scuba</h3>
+          <p>Escape to sandy beaches and camp under the starry sky by the crashing waves.</p>
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/YejH2dkh.jpeg
+ alt="img">
+          <h3>Forest Exploration</h3>
+          <p>Discover the wonders of lush forests and immerse yourself in nature's beauty.</p>
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/GPe27HOh.jpeg
+" alt="img">
+          <h3>RV Scuba-Camping</h3>
+          <p>Experience the freedom of road trips and camping adventures with our RV rentals.</p>
+        </li>
+        <li class="card">
+          <img src="https://i.imgur.com/NMKLdgsh.jpeg
+" alt="img">
+          <h3>Desert Scuba</h3>
+          <p>Embark on a unique desert Scuba experience and witness stunning landscapes.</p>
+        </li>
+      </ul>
+    </section>
+    <section class="about" id="about">
+      <h2>About Us</h2>
+      <p>Discover our story in providing Scuba services.</p>
+      <div class="row company-info">
+        <h3>Our Story</h3>
+        <p>Experience the excellence of our Scuba gear and services, where we have been offering high-quality Scuba essentials and gear for outdoor enthusiasts for over a decade. Our commitment to quality and customer satisfaction ensures that every adventurer can rely on us for their Scuba needs.</p>
+      </div>
+      <div class="row mission-vision">
+        <h3>Our Mission</h3>
+        <p>At Scuba Gear Experts, our mission is to equip submarine enthusiasts with top-notch Scuba gear and essentials that enhance their subacquatique experiences. We strive to provide reliable, durable, and innovative products that contribute to memorable adventures and lasting memories.</p>
+        <h3>Our Vision</h3>
+        <p>Our vision is to become the go-to destination for camping enthusiasts, known for our extensive selection of premium Scuba gear and exceptional customer service. We aspire to inspire and enable people to embrace the beauty of nature and create unforgettable underwater experiences.</p>
+      </div>
+      <div class="row team">
+        <h3>Our Team</h3>
+        <ul>
+          <li>John Doe - Founder and CEO</li>
+          <li>Jane Smith - Gear Specialist</li>
+          <li>Mark Johnson - Customer Representative</li>
+          <li>Sarah Brown - Operations Manager</li>
+        </ul>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <p>Reach out to us for any inquiries or feedback.</p>
+      <div class="row">
+        <div class="col information">
+          <div class="contact-details">
+            <p><i class="fas fa-map-marker-alt"></i> Barcelona, Spain 08018</p>
+            <p><i class="fas fa-envelope"></i> guillermoiranzo95@gmail.com</p>
+            <p><i class="fas fa-phone"></i> (xxx) xxx-xxxx</p>
+            <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+            <p><i class="fas fa-clock"></i> Saturday: 10:00 AM - 3:00 PM</p>
+            <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+            <p><i class="fas fa-globe"></i> www.gokuservic.es</p>
+          </div>          
+        </div>
+        <div class="col form">
+          <form>
+            <input type="text" placeholder="Name*" required>
+            <input type="email" placeholder="Email*" required>
+            <textarea placeholder="Message*" required></textarea>
+            <button id="submit" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div>
+        <span>Copyright © 2025 Red Gonfu All Rights Reserved</span>
+  <button id="back-to-top" class="button">&#9650; <!-- ▲ Upward arrow -->
+
+</button>
+
+    </footer>
+  </body>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const backToTopButton = document.getElementById("back-to-top");
+
+    if (backToTopButton) {
+      backToTopButton.addEventListener("click", function() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+  });
+</script>
+</html>
