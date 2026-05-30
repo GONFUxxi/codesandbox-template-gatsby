@@ -7,6 +7,9 @@
 
 <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <style>
 body{
   margin:0;
@@ -35,38 +38,26 @@ body::before{
   z-index:-1;
 }
 
-/* NAVBAR */
+/* 🧊 FLOATING GLASS NAVBAR */
 .navbar{
-  position:fixed;
-  top:0;
-  width:100%;
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px;
-  backdrop-filter:blur(20px);
-  background:rgba(0,0,0,0.6);
-  border-bottom:1px solid rgba(255,255,255,0.08);
+
+  padding:12px 18px;
+  width:min(900px, 92%);
+
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:999px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
   z-index:9999;
-  box-sizing:border-box;
-}
-
-.navbar div:last-child{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.navbar a{
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-  opacity:0.8;
-  padding:6px 8px;
-}
-.navbar a:hover{
-  color:#39FF14;
-  opacity:1;
 }
 
 /* HERO */
@@ -78,15 +69,11 @@ header{
 .header-title{
   font-size:62px;
   color:#39FF14;
-  text-shadow:0 0 25px rgba(57,255,20,0.7);
 }
 
 .header-subtitle{
   color:#00f0ff;
 }
-
-.cursor{animation:blink 1s infinite}
-@keyframes blink{50%{opacity:0}}
 
 /* BUTTON */
 .btn{
@@ -97,45 +84,31 @@ header{
   color:#000;
   font-weight:600;
   text-decoration:none;
-  margin-top:15px;
+  border:none;
+  cursor:pointer;
 }
 
-/* CARDS SYSTEM */
-.cards-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:12px;
-  padding:40px;
-}
-
+/* CARDS */
 .card{
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:16px;
   padding:18px;
   backdrop-filter:blur(12px);
-  transition:0.25s;
 }
 
-.card:hover{
-  transform:translateY(-6px);
-  border-color:#39FF14;
-  box-shadow:0 0 25px rgba(57,255,20,0.2);
+/* CONTACT FORM */
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:6px;
+  outline:none;
 }
 
-/* SECTIONS */
-section{
-  padding:60px 20px;
-}
+textarea{ resize:none; }
 
-h2{
-  color:#39FF14;
-}
-
-/* SKILLS ICON */
-.card h3{
-  margin-top:10px;
-}
 </style>
 </head>
 
@@ -146,7 +119,6 @@ h2{
 <!-- NAV -->
 <div class="navbar">
   <div><b style="color:#39FF14">iranzo</b> Portfolio</div>
-
   <div>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -158,163 +130,88 @@ h2{
 
 <!-- HERO -->
 <header>
-  <h4 class="header-subtitle">
-    <span id="typed-subtitle"></span><span class="cursor">|</span>
-  </h4>
-
-  <h1 class="header-title">
-    <span id="typed-title"></span>
-  </h1>
-
-  <p style="color:#00f0ff">
-    Front-End • Risk Analyst • Geodata Intelligence
-  </p>
-
-  <a class="btn" href="#projects">Explore Stage</a>
+  <h1 class="header-title">Guillermo Iranzo</h1>
+  <p class="header-subtitle">Front-End • Risk Analyst • Geodata Intelligence</p>
 </header>
 
 <!-- ABOUT -->
 <section id="about">
   <h2>About</h2>
   <p style="color:#ccc;max-width:800px">
-    Analyst & Front-End developer specialized in risk systems, geodata intelligence and UX engineering.
+    Analyst & Front-End developer specialized in risk systems and geodata intelligence.
   </p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <h2>Projects & Books</h2>
-
-  <div class="cards-container">
-    <div class="card">⚡ Front-End Systems</div>
-    <div class="card">🧠 Risk Engine</div>
-    <div class="card">🌍 Geodata Intelligence</div>
-    <div class="card">📘 GTEAPY Book</div>
-  </div>
+  <h2>Projects</h2>
+  <div class="card">⚡ Front-End Systems</div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2>Languages & Tools</h2>
-
-  <div class="cards-container">
-
-    <div class="card">
-      🌐 <h3>HTML</h3>
-      <p style="color:#ccc">Structure, semantics, accessibility.</p>
-    </div>
-
-    <div class="card">
-      🎨 <h3>CSS</h3>
-      <p style="color:#ccc">Layouts, animations, responsive UI systems.</p>
-    </div>
-
-    <div class="card">
-      ⚙️ <h3>JavaScript</h3>
-      <p style="color:#ccc">Logic, interactivity, automation.</p>
-    </div>
-
-    <div class="card">
-      📊 <h3>Excel</h3>
-      <p style="color:#ccc">Data analysis, reporting, dashboards.</p>
-    </div>
-
-    <div class="card">
-      🤖 <h3>ChatGPT</h3>
-      <p style="color:#ccc">AI-assisted workflows, productivity & analysis.</p>
-    </div>
-
-  </div>
+  <h2>Skills</h2>
+  <div class="card">HTML • CSS • JavaScript</div>
 </section>
 
 <!-- RESUME -->
 <section id="resume">
   <h2>Resume</h2>
 
-  <p style="color:#ccc">
-    Telus Digital • Teleperformance • META Certified
-  </p>
-
-  <a href="https://canva.link/rqd7lnbyytry711" download class="btn">
-    ⬇ Download CV
-  </a>
-
-  <div class="cards-container">
-    <div class="card">
-      📩 Contact Card
-
-      <p style="color:#00f0ff">Barcelona, Spain</p>
-      <p style="color:#00f0ff">guillermoiranzo95@gmail.com</p>
-
-      <a class="btn" href="mailto:guillermoiranzo95@gmail.com">
-        ✉ Send Email
-      </a>
-    </div>
+  <div class="card">
+    📄 CV
+    <a class="btn" href="https://canva.link/rqd7lnbyytry711">Download</a>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" style="padding: 80px 20px; text-align: center;">
+<section id="contact" style="text-align:center;">
+  <h2>Contact</h2>
 
-  <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Contact</h2>
+  <div class="card" style="max-width:520px;margin:20px auto;text-align:left;">
+    <h3>📩 Contact Card</h3>
+    <p style="color:#00f0ff;">📍 Barcelona, Spain</p>
+    <p style="color:#00f0ff;">✉ guillermoiranzo95@gmail.com</p>
 
-  <p style="color:#ccc; margin-bottom: 30px;">
-    Available for roles & collaborations
-  </p>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
 
-  <!-- Contact Info -->
-  <div style="margin-bottom: 40px; color: #fff;">
-    <p>Email: 
-      <a href="mailto:yourmail@example.com" style="color:#00e5ff;">
-        guillermoiranzo95@gmail.com
-      </a>
-    </p>
-
-    <p>Location: Barcelona, Spain</p>
+      <button type="submit" class="btn" id="sendBtn">
+        ✉ Send Email
+      </button>
+    </form>
   </div>
-
-  <!-- Contact Form -->
-  <form action="mailto:guillermoiranzo95@gmail.com" method="post" enctype="text/plain"
-        style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
-
-    <input type="text" name="name" placeholder="Your Name"
-           style="padding: 12px; border: none; border-radius: 6px;">
-
-    <input type="email" name="email" placeholder="Your Email"
-           style="padding: 12px; border: none; border-radius: 6px;">
-
-    <textarea name="message" rows="5" placeholder="Your Message"
-              style="padding: 12px; border: none; border-radius: 6px;"></textarea>
-
-    <button type="submit"
-            style="padding: 12px; background:#00e5ff; border:none; border-radius:6px; cursor:pointer;">
-      Send Message
-    </button>
-
-  </form>
-
 </section>
+
 <script>
-/* TYPEWRITER */
-function typeWriter(el, text, speed){
-  let i=0;
-  el.innerHTML="";
-  (function run(){
-    if(i<text.length){
-      el.innerHTML += text[i++];
-      setTimeout(run,speed);
-    }
-  })();
-}
+/* EMAILJS INIT */
+emailjs.init("TU_PUBLIC_KEY");
 
-document.addEventListener("DOMContentLoaded",()=>{
-  typeWriter(document.getElementById("typed-subtitle"),
-  "Vision Pro Stage Portfolio",70);
+/* SEND EMAIL */
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
 
-  setTimeout(()=>{
-    typeWriter(document.getElementById("typed-title"),
-    "Guillermo Iranzo",90);
-  },800);
+  const btn = document.getElementById("sendBtn");
+  btn.innerText = "Sending...";
+
+  emailjs.sendForm(
+    "TU_SERVICE_ID",
+    "TU_TEMPLATE_ID",
+    this
+  ).then(() => {
+    btn.innerText = "Sent ✔";
+    this.reset();
+
+    setTimeout(() => {
+      btn.innerText = "✉ Send Email";
+    }, 2000);
+
+  }, (error) => {
+    btn.innerText = "Error ❌";
+    console.log(error);
+  });
 });
 
 /* MATRIX */
