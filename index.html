@@ -7,9 +7,6 @@
 
 <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
 
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <style>
 body{
   margin:0;
@@ -53,11 +50,41 @@ body::before{
 
   background:rgba(255,255,255,0.06);
   backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
   border:1px solid rgba(255,255,255,0.12);
   border-radius:999px;
 
   box-shadow:0 10px 30px rgba(0,0,0,0.4);
   z-index:9999;
+  transition:0.3s ease;
+}
+
+.navbar div:first-child{
+  font-size:14px;
+}
+
+.navbar div:last-child{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.navbar a{
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  padding:6px 10px;
+  border-radius:999px;
+  opacity:0.8;
+  transition:0.25s;
+}
+
+.navbar a:hover{
+  opacity:1;
+  background:rgba(57,255,20,0.15);
+  color:#39FF14;
+  box-shadow:0 0 15px rgba(57,255,20,0.25);
 }
 
 /* HERO */
@@ -69,46 +96,93 @@ header{
 .header-title{
   font-size:62px;
   color:#39FF14;
+  text-shadow:0 0 25px rgba(57,255,20,0.7);
 }
 
 .header-subtitle{
   color:#00f0ff;
 }
 
-/* BUTTON */
+.cursor{animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* BUTTON - ACTUALIZADO */
 .btn{
   display:inline-block;
   padding:12px 22px;
   border-radius:999px;
   background:linear-gradient(90deg,#39FF14,#00f0ff);
-  color:#000;
-  font-weight:600;
+  color:#FFFFFF;
+  font-weight:700;
   text-decoration:none;
-  border:none;
-  cursor:pointer;
+  margin-top:15px;
+  text-shadow:0 1px 3px rgba(0,0,0,0.6);
+  box-shadow:0 4px 15px rgba(57,255,20,0.3);
+  transition:0.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 25px rgba(57,255,20,0.5);
 }
 
 /* CARDS */
+.cards-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  padding:40px;
+}
+
 .card{
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:16px;
   padding:18px;
   backdrop-filter:blur(12px);
+  transition:0.25s;
 }
 
-/* CONTACT FORM */
-input, textarea{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border:none;
-  border-radius:6px;
-  outline:none;
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#39FF14;
+  box-shadow:0 0 25px rgba(57,255,20,0.2);
 }
 
-textarea{ resize:none; }
+/* SECTIONS */
+section{
+  padding:60px 20px;
+}
 
+h2{
+  color:#39FF14;
+}
+
+/* ✨ FRAMER-LIKE ANIMATIONS */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s cubic-bezier(0.2,0.8,0.2,1);
+  will-change:transform, opacity;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.reveal.left{
+  transform:translateX(-40px);
+}
+
+.reveal.right{
+  transform:translateX(40px);
+}
+
+.reveal.left.show,
+.reveal.right.show{
+  transform:translateX(0);
+}
 </style>
 </head>
 
@@ -116,7 +190,7 @@ textarea{ resize:none; }
 
 <canvas id="matrix"></canvas>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <div class="navbar">
   <div><b style="color:#39FF14">iranzo</b> Portfolio</div>
   <div>
@@ -130,37 +204,69 @@ textarea{ resize:none; }
 
 <!-- HERO -->
 <header>
-  <h1 class="header-title">Guillermo Iranzo</h1>
-  <p class="header-subtitle">Front-End • Risk Analyst • Geodata Intelligence</p>
+  <h4 class="header-subtitle">
+    <span id="typed-subtitle"></span><span class="cursor">|</span>
+  </h4>
+
+  <h1 class="header-title">
+    <span id="typed-title"></span>
+  </h1>
+
+  <p style="color:#00f0ff">
+    Front-End • Risk Analyst • Geodata Intelligence
+  </p>
+
+  <a class="btn" href="#projects">Explore Stage</a>
 </header>
 
 <!-- ABOUT -->
 <section id="about">
   <h2>About</h2>
   <p style="color:#ccc;max-width:800px">
-    Analyst & Front-End developer specialized in risk systems and geodata intelligence.
+    Analyst & Front-End developer specialized in risk systems, geodata intelligence and UX engineering.
   </p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <h2>Projects</h2>
-  <div class="card">⚡ Front-End Systems</div>
+  <h2>Projects & Books</h2>
+
+  <div class="cards-container">
+    <div class="card">⚡ Front-End Systems</div>
+    <div class="card">🧠 Risk Engine</div>
+    <div class="card">🌍 Geodata Intelligence</div>
+    <div class="card">
+      📘 Digital Book Online 
+      <a href="https://guillermo95.gumroad.com/l/gteapy" class="btn">⬇ Download</a>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2>Skills</h2>
-  <div class="card">HTML • CSS • JavaScript</div>
+  <h2>Languages & Tools</h2>
+
+  <div class="cards-container">
+    <div class="card">🌐 HTML</div>
+    <div class="card">🎨 CSS</div>
+    <div class="card">⚙️ JavaScript</div>
+    <div class="card">📊 Excel</div>
+    <div class="card">🤖 ChatGPT</div>
+  </div>
 </section>
 
 <!-- RESUME -->
-<section id="resume">
+<section id="resume" style="text-align:center;">
   <h2>Resume</h2>
 
-  <div class="card">
-    📄 CV
-    <a class="btn" href="https://canva.link/rqd7lnbyytry711">Download</a>
+  <p style="color:#ccc; margin-bottom:40px;">
+    Telus Digital • Teleperformance • Coursera-META Certified • AI Training
+  </p>
+
+  <div class="cards-container">
+    <div class="card">📄 CV <a class="btn" href="https://canva.link/rqd7lnbyytry711">⬇ Download</a></div>
+    <div class="card">📘 META <a class="btn" href="https://www.coursera.org/account/accomplishments/verify/LVK9V8LQ75WL">🎓 View</a></div>
+    <div class="card">🤖 AI Course <a class="btn" href="https://certificados.thebigschool.com/wp-content/uploads/certs/MIA6/Certificado-Guillermo-Iranzo-Berrocal-e30m8ivw.pdf">📜 View</a></div>
   </div>
 </section>
 
@@ -171,47 +277,32 @@ textarea{ resize:none; }
   <div class="card" style="max-width:520px;margin:20px auto;text-align:left;">
     <h3>📩 Contact Card</h3>
     <p style="color:#00f0ff;">📍 Barcelona, Spain</p>
-    <p style="color:#00f0ff;">✉ guillermoiranzo95@gmail.com</p>
-
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-
-      <button type="submit" class="btn" id="sendBtn">
-        ✉ Send Email
-      </button>
-    </form>
+    <p style="color:#00f0ff; word-break:break-word;">✉ guillermoiranzo95@gmail.com</p>
+    <a href="mailto:guillermoiranzo95@gmail.com" class="btn">✉ Send Email</a>
   </div>
 </section>
 
 <script>
-/* EMAILJS INIT */
-emailjs.init("TU_PUBLIC_KEY");
+/* TYPEWRITER */
+function typeWriter(el,text,speed){
+  let i=0;
+  el.innerHTML="";
+  (function run(){
+    if(i<text.length){
+      el.innerHTML+=text[i++];
+      setTimeout(run,speed);
+    }
+  })();
+}
 
-/* SEND EMAIL */
-document.getElementById("contact-form").addEventListener("submit", function(e){
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded",()=>{
+  typeWriter(document.getElementById("typed-subtitle"),
+  "Vision Pro Stage Portfolio",70);
 
-  const btn = document.getElementById("sendBtn");
-  btn.innerText = "Sending...";
-
-  emailjs.sendForm(
-    "TU_SERVICE_ID",
-    "TU_TEMPLATE_ID",
-    this
-  ).then(() => {
-    btn.innerText = "Sent ✔";
-    this.reset();
-
-    setTimeout(() => {
-      btn.innerText = "✉ Send Email";
-    }, 2000);
-
-  }, (error) => {
-    btn.innerText = "Error ❌";
-    console.log(error);
-  });
+  setTimeout(()=>{
+    typeWriter(document.getElementById("typed-title"),
+    "Guillermo Iranzo",90);
+  },800);
 });
 
 /* MATRIX */
@@ -243,6 +334,39 @@ function draw(){
   }
 }
 setInterval(draw,33);
+
+/* ✨ FRAMER-LIKE SCROLL ANIMATION */
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:0.15});
+
+document.querySelectorAll(".card").forEach((el,i)=>{
+  el.classList.add("reveal");
+  el.style.transitionDelay = `${i*80}ms`;
+  observer.observe(el);
+});
+
+document.querySelectorAll("section h2, section p").forEach((el)=>{
+  el.classList.add("reveal");
+  observer.observe(el);
+});
+
+/* FLOAT NAV EFFECT */
+window.addEventListener("scroll",()=>{
+  const nav=document.querySelector(".navbar");
+
+  if(window.scrollY>50){
+    nav.style.transform="translateX(-50%) scale(0.95)";
+    nav.style.background="rgba(255,255,255,0.04)";
+  } else {
+    nav.style.transform="translateX(-50%) scale(1)";
+    nav.style.background="rgba(255,255,255,0.06)";
+  }
+});
 </script>
 
 </body>
